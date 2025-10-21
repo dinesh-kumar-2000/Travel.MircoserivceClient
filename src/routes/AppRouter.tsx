@@ -28,6 +28,15 @@ const LandingPageBuilder = React.lazy(
 const BookingsManagement = React.lazy(
   () => import('@/pages/tenantadmin/BookingsManagement')
 );
+const PaymentKeysPage = React.lazy(
+  () => import('@/pages/tenantadmin/PaymentKeysPage')
+);
+const MarketingPage = React.lazy(
+  () => import('@/pages/tenantadmin/Marketing/MarketingPage')
+);
+const StaffManagementPage = React.lazy(
+  () => import('@/pages/tenantadmin/Staff/StaffManagementPage')
+);
 
 // Public pages
 const LandingPage = React.lazy(() => import('@/pages/LandingPage'));
@@ -46,6 +55,8 @@ const ProfilePage = React.lazy(() => import('@/pages/user/ProfilePage'));
 
 // Shared pages
 const NotFoundPage = React.lazy(() => import('@/pages/NotFoundPage'));
+const UnauthorizedPage = React.lazy(() => import('@/pages/UnauthorizedPage'));
+const ServerErrorPage = React.lazy(() => import('@/pages/ServerErrorPage'));
 
 export const AppRouter: React.FC = () => {
   const { user, isAuthenticated } = useSelector(
@@ -119,6 +130,30 @@ export const AppRouter: React.FC = () => {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/tenant/payment-keys"
+          element={
+            <ProtectedRoute allowedRoles={['TenantAdmin']}>
+              <PaymentKeysPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/tenant/marketing"
+          element={
+            <ProtectedRoute allowedRoles={['TenantAdmin']}>
+              <MarketingPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/tenant/staff"
+          element={
+            <ProtectedRoute allowedRoles={['TenantAdmin']}>
+              <StaffManagementPage />
+            </ProtectedRoute>
+          }
+        />
 
         {/* Public Landing Page */}
         <Route path="/" element={<LandingPage />} />
@@ -162,6 +197,10 @@ export const AppRouter: React.FC = () => {
             )
           }
         />
+
+        {/* Error Pages */}
+        <Route path="/unauthorized" element={<UnauthorizedPage />} />
+        <Route path="/server-error" element={<ServerErrorPage />} />
 
         {/* 404 */}
         <Route path="*" element={<NotFoundPage />} />
