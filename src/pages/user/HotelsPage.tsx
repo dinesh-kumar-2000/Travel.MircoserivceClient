@@ -1,10 +1,11 @@
 import { Card } from '@/components/common/Card';
+import { MainLayout } from '@/components/layout';
 import React from 'react';
 
 const HotelsPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-50 py-8 dark:bg-gray-900">
-      <div className="container-custom">
+    <MainLayout>
+      <div className="container-custom py-8">
         <h1 className="mb-8 text-3xl font-bold text-gray-900 dark:text-white">
           Hotels
         </h1>
@@ -14,9 +15,8 @@ const HotelsPage: React.FC = () => {
           </p>
         </Card>
       </div>
-    </div>
+    </MainLayout>
   );
 };
 
 export default HotelsPage;
-

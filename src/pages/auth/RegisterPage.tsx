@@ -1,5 +1,6 @@
 import { Button } from '@/components/common/Button';
 import { Input } from '@/components/common/Input';
+import { AuthLayout } from '@/components/layout';
 import { useAuth } from '@/hooks/useAuth';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
@@ -35,90 +36,87 @@ const RegisterPage: React.FC = () => {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4 dark:bg-gray-900">
-      <div className="w-full max-w-md">
-        <div className="rounded-lg bg-white p-8 shadow-lg dark:bg-gray-800">
-          <h2 className="mb-6 text-center text-3xl font-bold text-gray-900 dark:text-white">
-            Create your account
-          </h2>
+    <AuthLayout>
+      <div className="rounded-lg bg-white p-8 shadow-lg dark:bg-gray-800">
+        <h2 className="mb-6 text-center text-3xl font-bold text-gray-900 dark:text-white">
+          Create your account
+        </h2>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-2 gap-4">
-              <Input
-                label="First Name"
-                type="text"
-                placeholder="John"
-                value={formData.firstName}
-                onChange={(e) =>
-                  setFormData({ ...formData, firstName: e.target.value })
-                }
-                required
-              />
-
-              <Input
-                label="Last Name"
-                type="text"
-                placeholder="Doe"
-                value={formData.lastName}
-                onChange={(e) =>
-                  setFormData({ ...formData, lastName: e.target.value })
-                }
-                required
-              />
-            </div>
-
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="grid grid-cols-2 gap-4">
             <Input
-              label="Email"
-              type="email"
-              placeholder="you@example.com"
-              value={formData.email}
+              label="First Name"
+              type="text"
+              placeholder="John"
+              value={formData.firstName}
               onChange={(e) =>
-                setFormData({ ...formData, email: e.target.value })
+                setFormData({ ...formData, firstName: e.target.value })
               }
               required
             />
 
             <Input
-              label="Password"
-              type="password"
-              placeholder="••••••••"
-              value={formData.password}
+              label="Last Name"
+              type="text"
+              placeholder="Doe"
+              value={formData.lastName}
               onChange={(e) =>
-                setFormData({ ...formData, password: e.target.value })
+                setFormData({ ...formData, lastName: e.target.value })
               }
               required
             />
+          </div>
 
-            <Input
-              label="Confirm Password"
-              type="password"
-              placeholder="••••••••"
-              value={formData.confirmPassword}
-              onChange={(e) =>
-                setFormData({ ...formData, confirmPassword: e.target.value })
-              }
-              required
-            />
+          <Input
+            label="Email"
+            type="email"
+            placeholder="you@example.com"
+            value={formData.email}
+            onChange={(e) =>
+              setFormData({ ...formData, email: e.target.value })
+            }
+            required
+          />
 
-            <Button type="submit" fullWidth isLoading={isLoading}>
-              Sign Up
-            </Button>
-          </form>
+          <Input
+            label="Password"
+            type="password"
+            placeholder="••••••••"
+            value={formData.password}
+            onChange={(e) =>
+              setFormData({ ...formData, password: e.target.value })
+            }
+            required
+          />
 
-          <p className="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
-            Already have an account?{' '}
-            <Link
-              to="/login"
-              className="font-medium text-primary-600 hover:text-primary-700"
-            >
-              Sign in
-            </Link>
-          </p>
-        </div>
+          <Input
+            label="Confirm Password"
+            type="password"
+            placeholder="••••••••"
+            value={formData.confirmPassword}
+            onChange={(e) =>
+              setFormData({ ...formData, confirmPassword: e.target.value })
+            }
+            required
+          />
+
+          <Button type="submit" fullWidth isLoading={isLoading}>
+            Sign Up
+          </Button>
+        </form>
+
+        <p className="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
+          Already have an account?{' '}
+          <Link
+            to="/login"
+            className="font-medium text-primary-600 hover:text-primary-700"
+          >
+            Sign in
+          </Link>
+        </p>
       </div>
-    </div>
+    </AuthLayout>
   );
 };
 
 export default RegisterPage;
-

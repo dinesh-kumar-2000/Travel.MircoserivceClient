@@ -1,11 +1,12 @@
 import { Button } from '@/components/common/Button';
 import { Card } from '@/components/common/Card';
+import { MainLayout } from '@/components/layout';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 const HomePage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <MainLayout>
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-primary-600 to-primary-800 py-20 text-white">
         <div className="container-custom">
@@ -71,9 +72,8 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
-    </div>
+    </MainLayout>
   );
 };
 
 export default HomePage;
-

@@ -1,9 +1,10 @@
 import { Card } from '@/components/common/Card';
+import { DashboardLayout } from '@/components/layout';
 import React from 'react';
 
 const Dashboard: React.FC = () => {
   return (
-    <div className="min-h-screen bg-gray-50 py-8 dark:bg-gray-900">
+    <DashboardLayout>
       <div className="container-custom">
         <h1 className="mb-8 text-3xl font-bold text-gray-900 dark:text-white">
           TenantAdmin Dashboard
@@ -14,9 +15,8 @@ const Dashboard: React.FC = () => {
           </p>
         </Card>
       </div>
-    </div>
+    </DashboardLayout>
   );
 };
 
 export default Dashboard;
-
