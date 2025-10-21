@@ -45,39 +45,23 @@ export interface Tenant {
   id: string;
   name: string;
   subdomain: string;
-  customDomain?: string;
-  logo?: string;
-  description?: string;
   contactEmail: string;
-  contactPhone: string;
-  address?: Address;
-  subscriptionPlan: SubscriptionPlan;
-  theme?: TenantTheme;
-  settings?: TenantSettings;
-  isActive: boolean;
-  createdAt: string;
-  updatedAt: string;
-}
-
-export interface TenantTheme {
-  mode: 'light' | 'dark';
-  primaryColor: string;
-  secondaryColor: string;
-  accentColor: string;
+  status: string;
+  tier: string;
   logo?: string;
-  favicon?: string;
-  customCss?: string;
+  primaryColor?: string;
+  secondaryColor?: string;
+  isActive: boolean;
+  settings?: TenantSettings;
 }
 
 export interface TenantSettings {
-  enableBookings: boolean;
-  enablePayments: boolean;
-  enableChatbot: boolean;
-  enableReviews: boolean;
-  defaultLanguage: string;
-  supportedLanguages: string[];
-  currency: string;
-  timezone: string;
+  theme?: string;
+  primaryColor?: string;
+  secondaryColor?: string;
+  logoUrl?: string;
+  faviconUrl?: string;
+  customCss?: string;
 }
 
 export interface SubscriptionPlan {

@@ -1,8 +1,13 @@
-import { ApiResponse, PaginatedResponse, Tenant } from '@/types';
+import {
+  ApiResponse,
+  PaginatedResponse,
+  Tenant,
+  TenantSettings,
+} from '@/types';
 import { apiClient } from './apiClient';
 
 class TenantService {
-  private baseUrl = '/api/v1/tenants';
+  private baseUrl = '/tenants/v1/Tenants';
 
   async getAllTenants(params?: { page?: number; pageSize?: number }) {
     return apiClient.get<ApiResponse<PaginatedResponse<Tenant>>>(this.baseUrl, {
@@ -32,17 +37,17 @@ class TenantService {
     return apiClient.delete<ApiResponse>(`${this.baseUrl}/${id}`);
   }
 
-  async updateTenantTheme(id: string, theme: Partial<Tenant['theme']>) {
+  async updateTenantConfiguration(
+    id: string,
+    config: { primaryColor?: string; secondaryColor?: string; logoUrl?: string }
+  ) {
     return apiClient.put<ApiResponse<Tenant>>(
-      `${this.baseUrl}/${id}/theme`,
-      theme
+      `${this.baseUrl}/${id}/configuration`,
+      config
     );
   }
 
-  async updateTenantSettings(
-    id: string,
-    settings: Partial<Tenant['settings']>
-  ) {
+  async updateTenantSettings(id: string, settings: Partial<TenantSettings>) {
     return apiClient.put<ApiResponse<Tenant>>(
       `${this.baseUrl}/${id}/settings`,
       settings

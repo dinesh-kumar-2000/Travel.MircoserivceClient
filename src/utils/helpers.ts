@@ -182,3 +182,75 @@ export const safeJsonParse = <T>(json: string, defaultValue: T): T => {
     return defaultValue;
   }
 };
+
+// Tenant Management Utilities
+
+/**
+ * Get the current tenant ID from localStorage
+ * @returns Tenant ID or null if not found
+ */
+export const getTenantId = (): string | null => {
+  try {
+    return localStorage.getItem('tenantId');
+  } catch (error) {
+    console.error('Error retrieving tenant ID from localStorage:', error);
+    return null;
+  }
+};
+
+/**
+ * Get the full tenant data from localStorage
+ * @returns Tenant object or null if not found
+ */
+export const getTenantData = <T = any>(): T | null => {
+  try {
+    const tenantData = localStorage.getItem('tenantData');
+    if (!tenantData) return null;
+    return JSON.parse(tenantData) as T;
+  } catch (error) {
+    console.error('Error retrieving tenant data from localStorage:', error);
+    return null;
+  }
+};
+
+/**
+ * Clear tenant data from localStorage
+ */
+export const clearTenantData = (): void => {
+  try {
+    localStorage.removeItem('tenantId');
+    localStorage.removeItem('tenantData');
+    console.log('🧹 Tenant data cleared from localStorage');
+  } catch (error) {
+    console.error('Error clearing tenant data from localStorage:', error);
+  }
+};
+
+/**
+ * Check if tenant data exists in localStorage
+ * @returns true if tenant data exists, false otherwise
+ */
+export const hasTenantData = (): boolean => {
+  try {
+    const tenantId = localStorage.getItem('tenantId');
+    return !!tenantId;
+  } catch (error) {
+    console.error('Error checking tenant data in localStorage:', error);
+    return false;
+  }
+};
+
+/**
+ * Store tenant data in localStorage
+ * @param tenantId - The tenant ID
+ * @param tenantData - The full tenant data object
+ */
+export const storeTenantData = (tenantId: string, tenantData: any): void => {
+  try {
+    localStorage.setItem('tenantId', tenantId);
+    localStorage.setItem('tenantData', JSON.stringify(tenantData));
+    console.log('💾 Tenant data stored in localStorage');
+  } catch (error) {
+    console.error('Error storing tenant data in localStorage:', error);
+  }
+};

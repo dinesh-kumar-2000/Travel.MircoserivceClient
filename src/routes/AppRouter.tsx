@@ -29,6 +29,9 @@ const BookingsManagement = React.lazy(
   () => import('@/pages/tenantadmin/BookingsManagement')
 );
 
+// Public pages
+const LandingPage = React.lazy(() => import('@/pages/LandingPage'));
+
 // User pages
 const HomePage = React.lazy(() => import('@/pages/user/HomePage'));
 const HotelsPage = React.lazy(() => import('@/pages/user/HotelsPage'));
@@ -117,8 +120,11 @@ export const AppRouter: React.FC = () => {
           }
         />
 
+        {/* Public Landing Page */}
+        <Route path="/" element={<LandingPage />} />
+
         {/* User routes */}
-        <Route path="/" element={<HomePage />} />
+        <Route path="/home" element={<HomePage />} />
         <Route path="/hotels" element={<HotelsPage />} />
         <Route path="/flights" element={<FlightsPage />} />
         <Route path="/tour-packages" element={<TourPackagesPage />} />

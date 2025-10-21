@@ -27,7 +27,42 @@ export default defineConfig({
     host: true,
     proxy: {
       '/api': {
-        target: process.env.VITE_API_BASE_URL || 'http://localhost:5000',
+        target: process.env.VITE_API_BASE_URL || 'http://localhost:8080',
+        changeOrigin: true,
+        secure: false,
+      },
+      '/tenants': {
+        target: process.env.VITE_API_BASE_URL || 'http://localhost:8080',
+        changeOrigin: true,
+        secure: false,
+      },
+      '/identity': {
+        target: process.env.VITE_API_BASE_URL || 'http://localhost:8080',
+        changeOrigin: true,
+        secure: false,
+      },
+      '/catalog': {
+        target: process.env.VITE_API_BASE_URL || 'http://localhost:8080',
+        changeOrigin: true,
+        secure: false,
+      },
+      '/bookings': {
+        target: process.env.VITE_API_BASE_URL || 'http://localhost:8080',
+        changeOrigin: true,
+        secure: false,
+      },
+      '/payments': {
+        target: process.env.VITE_API_BASE_URL || 'http://localhost:8080',
+        changeOrigin: true,
+        secure: false,
+      },
+      '/notifications': {
+        target: process.env.VITE_API_BASE_URL || 'http://localhost:8080',
+        changeOrigin: true,
+        secure: false,
+      },
+      '/reports': {
+        target: process.env.VITE_API_BASE_URL || 'http://localhost:8080',
         changeOrigin: true,
         secure: false,
       },
@@ -53,4 +88,3 @@ export default defineConfig({
     include: ['react', 'react-dom', 'react-router-dom'],
   },
 });
-
