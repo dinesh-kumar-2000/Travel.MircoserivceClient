@@ -1,0 +1,51 @@
+Build a multi-tenant React web application for a travel platform with three roles — SuperAdmin, TenantAdmin, and User — using subdomain-based login and tenant isolation.
+🧑‍💼 SuperAdmin Features
+Login at admin.travelsphere.com
+Manage Tenants (create, update, delete)
+Assign Subscription Plans and Payment Keys (e.g., Stripe/Razorpay)
+View Global Analytics (revenue, bookings, tenant usage)
+Manage Global Settings (themes, language, features)
+View System Logs and Activity Reports
+Dashboard with total tenants, users, and bookings summary
+🏢 TenantAdmin Features
+Login via subdomain (e.g., dreamtravel.travelsphere.com)
+Dashboard with tenant stats (revenue, bookings, clients)
+Dynamic Landing Page Builder
+Add/edit/delete sections (hero, banner, about, contact, offers)
+Upload images, text, colors, and styles
+Manage Payment Keys (tenant-level)
+Booking Management (CRUD operations)
+Client Management (CRUD, loyalty tracking)
+Hotel Management (CRUD, pricing, images)
+Flight Management (CRUD, API integration)
+Tour Package Management (CRUD, itinerary builder)
+Marketing Tools (promos, coupons, banners)
+Reports and analytics (bookings, revenue trends)
+Chatbot integration for customer help
+Multi-language and theme customization
+Domain mapping for custom domains
+🧳 User Features
+Login via tenant subdomain (e.g., dreamtravel.travelsphere.com)
+Browse tenant-branded landing page
+Search & filter hotels, flights, and tour packages
+Book and pay using integrated payment gateway
+View booking history and invoices
+Manage profile, favorites, and wishlist
+Receive booking confirmations and notifications
+Chatbot support and customer help
+Review & rating system
+Multi-language and dark mode
+⚙️ System-Level (Frontend)
+Detect tenant dynamically from subdomain
+Role-based routing and access guards
+Tenant-aware API calls (tenant context in headers or URL)
+Dynamic theme and branding fetched per tenant
+Responsive UI (mobile, tablet, desktop)
+Global state management (Redux Toolkit or Zustand)
+Error boundaries and fallback UI
+Analytics integration (Google Analytics / custom dashboard)
+Lazy loading per role module for performance
+Tech Stack: React + TypeScript + React Router + Redux Toolkit + Tailwind/MUI
+Backend: .NET 8 Web API (multi-tenant, CQRS, Dapper, JWT)
+Login Flow: Tenant-based login via subdomain (e.g., flynow.travelsphere.com/login)
+Goal: Fully dynamic, scalable, and customizable travel platform with tenant isolation and subdomain-based authentication.
