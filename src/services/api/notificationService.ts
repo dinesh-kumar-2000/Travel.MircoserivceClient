@@ -2,7 +2,7 @@ import { ApiResponse, Notification } from '@/types';
 import { apiClient } from './apiClient';
 
 class NotificationService {
-  private baseUrl = '/api/notifications';
+  private baseUrl = '/api/v1/notifications';
 
   async getNotifications() {
     return apiClient.get<ApiResponse<Notification[]>>(this.baseUrl);
@@ -28,4 +28,3 @@ class NotificationService {
 }
 
 export const notificationService = new NotificationService();
-

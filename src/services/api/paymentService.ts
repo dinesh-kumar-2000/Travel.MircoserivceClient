@@ -29,7 +29,7 @@ interface Transaction {
 
 class PaymentService extends BaseService {
   constructor() {
-    super('/payments');
+    super('/api/v1/payments');
   }
 
   /**

@@ -56,7 +56,7 @@ class ApiClient {
             const refreshToken = storageService.getRefreshToken();
             if (refreshToken) {
               const response = await axios.post(
-                `${API_BASE_URL}/api/auth/refresh-token`,
+                `${API_BASE_URL}/api/v1/auth/refresh-token`,
                 { refreshToken }
               );
 
@@ -137,4 +137,3 @@ class ApiClient {
 }
 
 export const apiClient = new ApiClient();
-

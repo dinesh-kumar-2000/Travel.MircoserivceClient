@@ -4,7 +4,7 @@ import { BaseService } from './baseService';
 
 class UserService extends BaseService<User> {
   constructor() {
-    super('/users');
+    super('/api/v1/users');
   }
 
   /**

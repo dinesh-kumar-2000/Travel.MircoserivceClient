@@ -2,7 +2,7 @@ import { ApiResponse, LoginCredentials, RegisterData, User } from '@/types';
 import { apiClient } from './apiClient';
 
 class AuthService {
-  private baseUrl = '/api/auth';
+  private baseUrl = '/api/v1/auth';
 
   async login(credentials: LoginCredentials) {
     return apiClient.post<

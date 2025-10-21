@@ -52,12 +52,12 @@ class CatalogService {
       pageSize: number;
     }>
   > {
-    const hotelService = new BaseService<Hotel>('/catalog/hotels');
+    const hotelService = new BaseService<Hotel>('/api/v1/catalog/hotels');
     return hotelService.get<any>('/search', { params });
   }
 
   async getHotelById(id: string): Promise<AxiosResponse<Hotel>> {
-    const hotelService = new BaseService<Hotel>('/catalog/hotels');
+    const hotelService = new BaseService<Hotel>('/api/v1/catalog/hotels');
     return hotelService.getById(id);
   }
 
@@ -66,7 +66,7 @@ class CatalogService {
     checkIn: string,
     checkOut: string
   ): Promise<AxiosResponse<any>> {
-    const hotelService = new BaseService<Hotel>('/catalog/hotels');
+    const hotelService = new BaseService<Hotel>('/api/v1/catalog/hotels');
     return hotelService.get(`/${hotelId}/availability`, {
       params: { checkIn, checkOut },
     });
@@ -76,7 +76,7 @@ class CatalogService {
     hotelId: string,
     params?: SearchParams
   ): Promise<AxiosResponse<any>> {
-    const hotelService = new BaseService<Hotel>('/catalog/hotels');
+    const hotelService = new BaseService<Hotel>('/api/v1/catalog/hotels');
     return hotelService.get(`/${hotelId}/reviews`, { params });
   }
 
@@ -89,17 +89,17 @@ class CatalogService {
       pageSize: number;
     }>
   > {
-    const flightService = new BaseService<Flight>('/catalog/flights');
+    const flightService = new BaseService<Flight>('/api/v1/catalog/flights');
     return flightService.get<any>('/search', { params });
   }
 
   async getFlightById(id: string): Promise<AxiosResponse<Flight>> {
-    const flightService = new BaseService<Flight>('/catalog/flights');
+    const flightService = new BaseService<Flight>('/api/v1/catalog/flights');
     return flightService.getById(id);
   }
 
   async getFlightSeats(flightId: string): Promise<AxiosResponse<any>> {
-    const flightService = new BaseService<Flight>('/catalog/flights');
+    const flightService = new BaseService<Flight>('/api/v1/catalog/flights');
     return flightService.get(`/${flightId}/seats`);
   }
 
@@ -112,17 +112,17 @@ class CatalogService {
       pageSize: number;
     }>
   > {
-    const tourService = new BaseService<TourPackage>('/catalog/tours');
+    const tourService = new BaseService<TourPackage>('/api/v1/catalog/tours');
     return tourService.get<any>('/search', { params });
   }
 
   async getTourById(id: string): Promise<AxiosResponse<TourPackage>> {
-    const tourService = new BaseService<TourPackage>('/catalog/tours');
+    const tourService = new BaseService<TourPackage>('/api/v1/catalog/tours');
     return tourService.getById(id);
   }
 
   async getTourItinerary(tourId: string): Promise<AxiosResponse<any>> {
-    const tourService = new BaseService<TourPackage>('/catalog/tours');
+    const tourService = new BaseService<TourPackage>('/api/v1/catalog/tours');
     return tourService.get(`/${tourId}/itinerary`);
   }
 
@@ -130,7 +130,7 @@ class CatalogService {
     tourId: string,
     date: string
   ): Promise<AxiosResponse<any>> {
-    const tourService = new BaseService<TourPackage>('/catalog/tours');
+    const tourService = new BaseService<TourPackage>('/api/v1/catalog/tours');
     return tourService.get(`/${tourId}/availability`, {
       params: { date },
     });
@@ -140,34 +140,34 @@ class CatalogService {
     tourId: string,
     params?: SearchParams
   ): Promise<AxiosResponse<any>> {
-    const tourService = new BaseService<TourPackage>('/catalog/tours');
+    const tourService = new BaseService<TourPackage>('/api/v1/catalog/tours');
     return tourService.get(`/${tourId}/reviews`, { params });
   }
 
   // Featured & Popular
   async getFeaturedHotels(): Promise<AxiosResponse<Hotel[]>> {
-    const hotelService = new BaseService<Hotel>('/catalog/hotels');
+    const hotelService = new BaseService<Hotel>('/api/v1/catalog/hotels');
     return hotelService.get<Hotel[]>('/featured');
   }
 
   async getFeaturedTours(): Promise<AxiosResponse<TourPackage[]>> {
-    const tourService = new BaseService<TourPackage>('/catalog/tours');
+    const tourService = new BaseService<TourPackage>('/api/v1/catalog/tours');
     return tourService.get<TourPackage[]>('/featured');
   }
 
   async getPopularDestinations(): Promise<AxiosResponse<any[]>> {
-    const baseService = new BaseService('/catalog');
+    const baseService = new BaseService('/api/v1/catalog');
     return baseService.get<any[]>('/destinations/popular');
   }
 
   // Categories
   async getTourCategories(): Promise<AxiosResponse<string[]>> {
-    const tourService = new BaseService<TourPackage>('/catalog/tours');
+    const tourService = new BaseService<TourPackage>('/api/v1/catalog/tours');
     return tourService.get<string[]>('/categories');
   }
 
   async getHotelAmenities(): Promise<AxiosResponse<string[]>> {
-    const hotelService = new BaseService<Hotel>('/catalog/hotels');
+    const hotelService = new BaseService<Hotel>('/api/v1/catalog/hotels');
     return hotelService.get<string[]>('/amenities');
   }
 }

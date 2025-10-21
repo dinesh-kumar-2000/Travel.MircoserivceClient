@@ -2,13 +2,12 @@ import { ApiResponse, PaginatedResponse, Tenant } from '@/types';
 import { apiClient } from './apiClient';
 
 class TenantService {
-  private baseUrl = '/api/tenants';
+  private baseUrl = '/api/v1/tenants';
 
   async getAllTenants(params?: { page?: number; pageSize?: number }) {
-    return apiClient.get<ApiResponse<PaginatedResponse<Tenant>>>(
-      this.baseUrl,
-      { params }
-    );
+    return apiClient.get<ApiResponse<PaginatedResponse<Tenant>>>(this.baseUrl, {
+      params,
+    });
   }
 
   async getTenantById(id: string) {
@@ -64,4 +63,3 @@ class TenantService {
 }
 
 export const tenantService = new TenantService();
-

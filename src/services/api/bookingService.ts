@@ -2,7 +2,7 @@ import { ApiResponse, Booking, PaginatedResponse } from '@/types';
 import { apiClient } from './apiClient';
 
 class BookingService {
-  private baseUrl = '/api/bookings';
+  private baseUrl = '/api/v1/bookings';
 
   async getBookings(params?: { page?: number; pageSize?: number }) {
     return apiClient.get<ApiResponse<PaginatedResponse<Booking>>>(
@@ -24,9 +24,7 @@ class BookingService {
   }
 
   async cancelBooking(id: string) {
-    return apiClient.post<ApiResponse<Booking>>(
-      `${this.baseUrl}/${id}/cancel`
-    );
+    return apiClient.post<ApiResponse<Booking>>(`${this.baseUrl}/${id}/cancel`);
   }
 
   async confirmBooking(id: string) {
@@ -35,14 +33,20 @@ class BookingService {
     );
   }
 
-  async getUserBookings(userId: string, params?: { page?: number; pageSize?: number }) {
+  async getUserBookings(
+    userId: string,
+    params?: { page?: number; pageSize?: number }
+  ) {
     return apiClient.get<ApiResponse<PaginatedResponse<Booking>>>(
       `${this.baseUrl}/user/${userId}`,
       { params }
     );
   }
 
-  async getTenantBookings(tenantId: string, params?: { page?: number; pageSize?: number }) {
+  async getTenantBookings(
+    tenantId: string,
+    params?: { page?: number; pageSize?: number }
+  ) {
     return apiClient.get<ApiResponse<PaginatedResponse<Booking>>>(
       `${this.baseUrl}/tenant/${tenantId}`,
       { params }
@@ -51,4 +55,3 @@ class BookingService {
 }
 
 export const bookingService = new BookingService();
-
