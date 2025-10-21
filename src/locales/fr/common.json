@@ -1,0 +1,71 @@
+{
+  "app": {
+    "name": "TravelSphere",
+    "tagline": "Votre Voyage Commence Ici"
+  },
+  "auth": {
+    "login": "Connexion",
+    "register": "S'inscrire",
+    "logout": "Déconnexion",
+    "email": "E-mail",
+    "password": "Mot de passe",
+    "forgotPassword": "Mot de passe oublié?",
+    "rememberMe": "Se souvenir de moi",
+    "signIn": "Se Connecter",
+    "signUp": "S'inscrire",
+    "firstName": "Prénom",
+    "lastName": "Nom",
+    "confirmPassword": "Confirmer le Mot de Passe"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "hotels": "Hôtels",
+    "flights": "Vols",
+    "tours": "Circuits",
+    "bookings": "Mes Réservations",
+    "profile": "Profil",
+    "wishlist": "Liste de Souhaits",
+    "wallet": "Portefeuille",
+    "dashboard": "Tableau de Bord",
+    "tenants": "Locataires",
+    "analytics": "Analytique",
+    "settings": "Paramètres",
+    "reports": "Rapports",
+    "clients": "Clients"
+  },
+  "common": {
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "sort": "Trier",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "view": "Voir",
+    "create": "Créer",
+    "update": "Mettre à Jour",
+    "submit": "Soumettre",
+    "reset": "Réinitialiser",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "loading": "Chargement...",
+    "noData": "Aucune donnée disponible",
+    "confirm": "Confirmer",
+    "yes": "Oui",
+    "no": "Non"
+  },
+  "booking": {
+    "bookNow": "Réserver Maintenant",
+    "checkIn": "Arrivée",
+    "checkOut": "Départ",
+    "guests": "Invités",
+    "nights": "Nuits",
+    "total": "Total",
+    "subtotal": "Sous-total",
+    "taxes": "Taxes et Frais",
+    "bookingConfirmed": "Réservation Confirmée!",
+    "bookingNumber": "Numéro de Réservation"
+  }
+}
+

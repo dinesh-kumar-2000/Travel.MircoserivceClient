@@ -1,0 +1,70 @@
+{
+  "app": {
+    "name": "TravelSphere",
+    "tagline": "Tu Viaje Comienza Aquí"
+  },
+  "auth": {
+    "login": "Iniciar Sesión",
+    "register": "Registrarse",
+    "logout": "Cerrar Sesión",
+    "email": "Correo Electrónico",
+    "password": "Contraseña",
+    "forgotPassword": "¿Olvidaste tu contraseña?",
+    "rememberMe": "Recuérdame",
+    "signIn": "Iniciar Sesión",
+    "signUp": "Registrarse",
+    "firstName": "Nombre",
+    "lastName": "Apellido",
+    "confirmPassword": "Confirmar Contraseña"
+  },
+  "navigation": {
+    "home": "Inicio",
+    "hotels": "Hoteles",
+    "flights": "Vuelos",
+    "tours": "Tours",
+    "bookings": "Mis Reservas",
+    "profile": "Perfil",
+    "wishlist": "Lista de Deseos",
+    "wallet": "Cartera",
+    "dashboard": "Panel",
+    "tenants": "Inquilinos",
+    "analytics": "Analítica",
+    "settings": "Configuración",
+    "reports": "Informes",
+    "clients": "Clientes"
+  },
+  "common": {
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "sort": "Ordenar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "view": "Ver",
+    "create": "Crear",
+    "update": "Actualizar",
+    "submit": "Enviar",
+    "reset": "Restablecer",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "loading": "Cargando...",
+    "noData": "No hay datos disponibles",
+    "confirm": "Confirmar",
+    "yes": "Sí",
+    "no": "No"
+  },
+  "booking": {
+    "bookNow": "Reservar Ahora",
+    "checkIn": "Entrada",
+    "checkOut": "Salida",
+    "guests": "Huéspedes",
+    "nights": "Noches",
+    "total": "Total",
+    "subtotal": "Subtotal",
+    "taxes": "Impuestos y Tasas",
+    "bookingConfirmed": "¡Reserva Confirmada!",
+    "bookingNumber": "Número de Reserva"
+  }
+}

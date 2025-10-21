@@ -5,6 +5,7 @@ A comprehensive multi-tenant travel platform web application built with React, T
 ## 🌟 Overview
 
 TravelSphere is a modern, scalable travel platform that enables:
+
 - **SuperAdmins** to manage multiple travel agency tenants
 - **TenantAdmins** to run their branded travel agency
 - **Users** to browse and book travel services through tenant-specific branded experiences
@@ -12,6 +13,7 @@ TravelSphere is a modern, scalable travel platform that enables:
 ## 🎯 Key Features
 
 ### 🧑‍💼 SuperAdmin Features
+
 - **Access:** `admin.travelsphere.com`
 - Comprehensive tenant management (CRUD operations)
 - Subscription plan assignment and management
@@ -22,6 +24,7 @@ TravelSphere is a modern, scalable travel platform that enables:
 - Real-time metrics and reporting
 
 ### 🏢 TenantAdmin Features
+
 - **Access:** Subdomain-based (e.g., `dreamtravel.travelsphere.com`)
 - Custom branded landing page builder
   - Drag-and-drop section editor
@@ -41,6 +44,7 @@ TravelSphere is a modern, scalable travel platform that enables:
 - Domain mapping for custom domains
 
 ### 🧳 User Features
+
 - **Access:** Tenant subdomain (e.g., `dreamtravel.travelsphere.com`)
 - Browse tenant-branded landing pages
 - Advanced search and filtering:
@@ -61,6 +65,7 @@ TravelSphere is a modern, scalable travel platform that enables:
 ## 🏗️ Architecture
 
 ### System-Level Features
+
 - **Tenant Detection:** Automatic subdomain-based tenant identification
 - **Role-Based Access:** Dynamic routing and permission guards
 - **Tenant Isolation:** Complete data separation per tenant
@@ -74,6 +79,7 @@ TravelSphere is a modern, scalable travel platform that enables:
 ## 🛠️ Tech Stack
 
 ### Frontend
+
 - **Framework:** React 18+ with TypeScript
 - **Routing:** React Router v6
 - **State Management:** Redux Toolkit
@@ -85,6 +91,7 @@ TravelSphere is a modern, scalable travel platform that enables:
 - **Internationalization:** i18next
 
 ### Backend Integration
+
 - **.NET 8 Web API** (multi-tenant architecture)
 - **CQRS Pattern** with MediatR
 - **Database:** PostgreSQL with Dapper
@@ -137,6 +144,7 @@ client/
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js 18+ and npm/yarn
 - Git
 - Backend API services running (see backend repository)
@@ -144,12 +152,14 @@ client/
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/dinesh-kumar-2000/Travel.MircoserivceClient.git
    cd Travel.MircoserivceClient
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    # or
@@ -157,11 +167,13 @@ client/
    ```
 
 3. **Configure environment variables**
+
    ```bash
    cp .env.example .env.local
    ```
-   
+
    Update `.env.local` with your configuration:
+
    ```env
    VITE_API_BASE_URL=http://localhost:5000
    VITE_APP_DOMAIN=travelsphere.com
@@ -170,6 +182,7 @@ client/
    ```
 
 4. **Start development server**
+
    ```bash
    npm run dev
    # or
@@ -177,6 +190,7 @@ client/
    ```
 
 5. **Access the application**
+
    - SuperAdmin: `http://admin.localhost:5173`
    - TenantAdmin: `http://[tenant-subdomain].localhost:5173`
    - User: `http://[tenant-subdomain].localhost:5173`
@@ -209,6 +223,7 @@ npm run test:e2e
 ## 📱 Responsive Design
 
 The application is fully responsive and optimized for:
+
 - 📱 Mobile devices (320px+)
 - 📲 Tablets (768px+)
 - 💻 Desktop (1024px+)
@@ -217,6 +232,7 @@ The application is fully responsive and optimized for:
 ## 🌍 Multi-Language Support
 
 Supported languages:
+
 - 🇺🇸 English (default)
 - 🇪🇸 Spanish
 - 🇫🇷 French
@@ -245,16 +261,19 @@ Supported languages:
 **Progress:** 15% (3/20 major tasks completed)
 
 ✅ **Completed:**
+
 - Project setup and configuration
 - Folder structure
 - Tenant detection system
 
 🔄 **In Progress:**
+
 - Redux store implementation
 - API service layer
 - Authentication flow
 
 ⏳ **Upcoming:**
+
 - Routing and navigation
 - Shared component library
 - Role-specific features
@@ -276,6 +295,7 @@ This project is proprietary software. All rights reserved.
 ## 📞 Support
 
 For issues, questions, or contributions:
+
 - **Email:** support@travelsphere.com
 - **Documentation:** [Link to full documentation]
 - **API Docs:** [Link to API documentation]
@@ -289,4 +309,3 @@ For issues, questions, or contributions:
 ---
 
 **Built with ❤️ for the modern travel industry**
-
