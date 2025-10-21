@@ -1,51 +1,350 @@
 Build a multi-tenant React web application for a travel platform with three roles — SuperAdmin, TenantAdmin, and User — using subdomain-based login and tenant isolation.
 🧑‍💼 SuperAdmin Features
 Login at admin.travelsphere.com
-Manage Tenants (create, update, delete)
+Manage Tenants (create, update, delete, suspend, activate)
 Assign Subscription Plans and Payment Keys (e.g., Stripe/Razorpay)
-View Global Analytics (revenue, bookings, tenant usage)
-Manage Global Settings (themes, language, features)
+View Global Analytics (revenue, bookings, tenant usage, trends)
+Manage Global Settings (themes, language, features, email templates)
 View System Logs and Activity Reports
 Dashboard with total tenants, users, and bookings summary
+Bulk Operations (import/export tenants, bulk updates)
+System Monitoring (performance metrics, error tracking, uptime)
+Compliance Management (GDPR, data export/deletion requests)
+Subscription Management (billing cycles, invoicing, payment history)
+Global Email/SMS Templates for system notifications
+Feature Flag Management (enable/disable features per tenant)
+Audit Trail (track all admin actions with timestamps)
 🏢 TenantAdmin Features
 Login via subdomain (e.g., dreamtravel.travelsphere.com)
-Dashboard with tenant stats (revenue, bookings, clients)
+Dashboard with tenant stats (revenue, bookings, clients, conversion rates)
 Dynamic Landing Page Builder
-Add/edit/delete sections (hero, banner, about, contact, offers)
+Add/edit/delete sections (hero, banner, about, contact, offers, testimonials, gallery)
 Upload images, text, colors, and styles
-Manage Payment Keys (tenant-level)
-Booking Management (CRUD operations)
-Client Management (CRUD, loyalty tracking)
-Hotel Management (CRUD, pricing, images)
-Flight Management (CRUD, API integration)
-Tour Package Management (CRUD, itinerary builder)
-Marketing Tools (promos, coupons, banners)
-Reports and analytics (bookings, revenue trends)
-Chatbot integration for customer help
+SEO Settings (meta tags, keywords, descriptions, sitemap)
+Manage Payment Keys (tenant-level, multiple gateways)
+Booking Management (CRUD, cancellations, modifications, refunds, status tracking)
+Advanced Booking Features (partial payments, installment plans, group bookings)
+Client Management (CRUD, loyalty tracking, segmentation, communication history)
+Hotel Management (CRUD, pricing, images, room types, amenities, availability calendar)
+Flight Management (CRUD, API integration, fare rules, seat selection)
+Tour Package Management (CRUD, itinerary builder, inclusions/exclusions, day-wise plans)
+Travel Insurance & Add-ons (meals, transfers, activities, travel insurance options)
+Marketing Tools (promos, coupons, banners, email campaigns, SMS campaigns)
+Review & Rating Management (moderate, respond, feature reviews)
+Reports and Analytics (bookings, revenue trends, customer insights, conversion funnels)
+Export Reports (PDF, Excel, CSV formats)
+Content Management System (blog posts, FAQs, help articles, terms & conditions, privacy policy)
+Email/SMS Templates (booking confirmations, reminders, marketing)
+Notification Management (push notifications, email, SMS configurations)
+Multi-currency Support (pricing in multiple currencies, conversion rates)
+Loyalty Program Management (points, rewards, tier configuration)
+Staff Management (add staff users, assign roles, permissions)
+Chatbot Integration & Configuration
 Multi-language and theme customization
 Domain mapping for custom domains
+Calendar View (availability, bookings, blocked dates)
+Document Management (upload vouchers, tickets, contracts)
+Support Ticketing System (customer queries, resolution tracking)
+Integration Settings (third-party APIs: Amadeus, Booking.com, TripAdvisor)
+Audit Logs (track all tenant admin actions)
 🧳 User Features
-Login via tenant subdomain (e.g., dreamtravel.travelsphere.com)
+Register/Login via tenant subdomain (e.g., dreamtravel.travelsphere.com)
+Social Login (Google, Facebook, Apple)
+Two-Factor Authentication (2FA) for security
 Browse tenant-branded landing page
-Search & filter hotels, flights, and tour packages
-Book and pay using integrated payment gateway
-View booking history and invoices
-Manage profile, favorites, and wishlist
-Receive booking confirmations and notifications
-Chatbot support and customer help
-Review & rating system
-Multi-language and dark mode
+Advanced Search & Filters (date range, price range, location, rating, amenities, meal plans)
+Sort & Compare options (price, rating, popularity)
+Saved Searches & Price Alerts
+Book and pay using integrated payment gateway (Stripe, Razorpay, PayPal)
+Multi-currency Support (pay in preferred currency)
+Partial Payments & Installment Plans
+Add Travel Insurance & Add-ons (meals, seats, transfers)
+View Booking History, Invoices, and Vouchers
+Download Tickets & Travel Documents (PDF)
+Modify/Cancel Bookings with refund options
+Manage Profile (personal info, password, preferences)
+Manage Favorites, Wishlist, and Saved Items
+Receive Booking Confirmations via Email/SMS/Push Notifications
+Real-time Booking Status Updates
+Loyalty Points & Rewards Tracking
+Redeem Points for discounts
+Chatbot Support and Customer Help
+Support Ticket System (raise queries, track status)
+Review & Rating System (post-trip reviews with photos)
+View Trip Itinerary with day-wise plans
+Multi-language and Dark Mode
+Newsletter Subscription & Promotional Offers
+Share Trips on Social Media
+Refer & Earn Program
+Travel Blog & Articles Access
+Accessibility Features (screen reader support, keyboard navigation)
 ⚙️ System-Level (Frontend)
 Detect tenant dynamically from subdomain
 Role-based routing and access guards
 Tenant-aware API calls (tenant context in headers or URL)
 Dynamic theme and branding fetched per tenant
 Responsive UI (mobile, tablet, desktop)
+PWA Support (Progressive Web App with offline capabilities)
 Global state management (Redux Toolkit or Zustand)
 Error boundaries and fallback UI
+Toast/Snackbar notifications for user feedback
+Loading states and skeleton screens
 Analytics integration (Google Analytics / custom dashboard)
+Event tracking (user actions, conversions, page views)
 Lazy loading per role module for performance
-Tech Stack: React + TypeScript + React Router + Redux Toolkit + Tailwind/MUI
-Backend: .NET 8 Web API (multi-tenant, CQRS, Dapper, JWT)
-Login Flow: Tenant-based login via subdomain (e.g., flynow.travelsphere.com/login)
-Goal: Fully dynamic, scalable, and customizable travel platform with tenant isolation and subdomain-based authentication.
+Code splitting for optimal bundle size
+Image optimization and lazy loading
+CDN integration for static assets
+Caching strategies (API responses, images, data)
+Service Workers for offline support
+SEO Optimization (SSR/SSG support, meta tags, structured data)
+Sitemap generation per tenant
+Social media preview cards (Open Graph, Twitter Cards)
+Cookie Consent Management (GDPR compliant)
+Session Management (auto-logout, session timeout warnings)
+Rate Limiting on frontend (prevent API abuse)
+Form Validation (client-side with real-time feedback)
+Internationalization (i18n) with RTL support
+Accessibility (WCAG 2.1 AA compliance)
+Error Logging & Monitoring (Sentry, LogRocket)
+A/B Testing support
+Feature Flags (enable/disable features dynamically)
+WebSocket support for real-time updates (booking status, notifications)
+Print-friendly layouts (invoices, vouchers, itineraries)
+Breadcrumb navigation
+Search Engine friendly URLs
+Tenant-specific favicon and branding
+Multi-tab sync (logout in one tab reflects in all)
+Browser compatibility (Chrome, Firefox, Safari, Edge)
+Performance monitoring (Core Web Vitals, LCP, FID, CLS)
+
+🔐 Security & Authentication
+JWT-based authentication with refresh tokens
+OAuth 2.0 / Social Login integration
+Two-Factor Authentication (2FA) with TOTP
+Password strength validation and complexity rules
+Password reset via email with secure tokens
+Account lockout after failed login attempts
+Session timeout and auto-logout
+HTTPS everywhere (SSL/TLS)
+CSRF protection
+XSS prevention (sanitize inputs)
+SQL Injection prevention (parameterized queries)
+Content Security Policy (CSP) headers
+Rate limiting per user/IP
+API key management for tenant payment gateways
+Secure storage of sensitive data (encryption at rest)
+PCI DSS compliance for payment data
+Role-based access control (RBAC)
+Permission-based feature access
+Audit logs for security events
+Data masking for sensitive information
+
+🔌 API Integrations
+Flight APIs (Amadeus, Sabre, Travelport)
+Hotel APIs (Booking.com, Expedia, Agoda)
+Payment Gateways (Stripe, Razorpay, PayPal, Square)
+Email Services (SendGrid, AWS SES, Mailgun)
+SMS Services (Twilio, SNS, MSG91)
+Map Services (Google Maps, Mapbox)
+Weather APIs (OpenWeatherMap)
+Currency Conversion APIs (Fixer.io, ExchangeRate-API)
+Social Media APIs (Facebook, Instagram, Twitter for sharing)
+Analytics (Google Analytics, Mixpanel, Amplitude)
+Chatbot Services (Dialogflow, IBM Watson, custom AI)
+File Storage (AWS S3, Cloudinary, Azure Blob)
+CDN (Cloudflare, AWS CloudFront)
+Monitoring (Sentry, New Relic, Datadog)
+Review Platforms (TripAdvisor API)
+
+📊 Performance Requirements
+Page load time < 3 seconds
+Time to Interactive (TTI) < 5 seconds
+First Contentful Paint (FCP) < 1.8 seconds
+Largest Contentful Paint (LCP) < 2.5 seconds
+Cumulative Layout Shift (CLS) < 0.1
+First Input Delay (FID) < 100ms
+API response time < 500ms (p95)
+Support 10,000+ concurrent users
+Database query optimization (indexes, query caching)
+Redis caching for frequent queries
+Image optimization (WebP, lazy loading, responsive images)
+Bundle size optimization (code splitting, tree shaking)
+Minification and compression (Gzip, Brotli)
+Database connection pooling
+Horizontal scaling support
+Load balancing
+Auto-scaling based on traffic
+
+🧪 Testing & Quality Assurance
+Unit Tests (Jest, React Testing Library)
+Integration Tests (API testing)
+End-to-End Tests (Cypress, Playwright)
+Component Testing (Storybook)
+Accessibility Testing (axe-core, Lighthouse)
+Performance Testing (Lighthouse, WebPageTest)
+Load Testing (JMeter, k6)
+Security Testing (OWASP ZAP, penetration testing)
+Cross-browser Testing (BrowserStack, Sauce Labs)
+Mobile Responsiveness Testing
+API Contract Testing
+Regression Testing
+User Acceptance Testing (UAT)
+Test Coverage > 80%
+Continuous Testing in CI/CD pipeline
+
+🚀 Deployment & DevOps
+Docker containerization
+Kubernetes orchestration
+CI/CD Pipeline (GitHub Actions, Jenkins, GitLab CI)
+Automated builds and deployments
+Environment-specific configurations (dev, staging, production)
+Blue-Green deployment strategy
+Database migration scripts
+Automated rollback on failure
+Infrastructure as Code (Terraform, CloudFormation)
+Secrets management (AWS Secrets Manager, Azure Key Vault)
+Environment variables for configuration
+Health check endpoints
+Log aggregation (ELK Stack, CloudWatch)
+Monitoring dashboards (Grafana, Kibana)
+Alerting (PagerDuty, Opsgenie)
+Backup and disaster recovery
+Database backups (automated, daily)
+Point-in-time recovery
+Multi-region deployment for high availability
+CDN for global content delivery
+Version tagging and release management
+
+📋 Additional Requirements
+Data Export (users can export their data - GDPR)
+Data Deletion (right to be forgotten)
+Terms & Conditions acceptance on registration
+Privacy Policy compliance
+Cookie Policy and consent banner
+Email preference management (unsubscribe options)
+Automated email workflows (welcome, abandoned cart, post-booking)
+Scheduled tasks (cron jobs for reminders, cleanup)
+Webhook support for real-time integrations
+API documentation (Swagger/OpenAPI)
+User onboarding flow with tooltips/tutorials
+Maintenance mode page
+Custom error pages (404, 500, 503)
+Breadcrumb trail for navigation
+Pagination for large datasets
+Infinite scroll where appropriate
+Skeleton loaders during data fetch
+Empty states with helpful messages
+Confirmation dialogs for destructive actions
+Keyboard shortcuts for power users
+Print stylesheets for documents
+QR code generation for bookings
+Barcode scanning support
+Geolocation services for location-based search
+Push notification subscriptions
+In-app announcements and banners
+Feedback & survey forms
+NPS (Net Promoter Score) surveys
+Version control and changelog
+Multi-language support (10+ languages)
+Timezone handling for bookings across regions
+
+🛠️ Tech Stack
+
+Frontend:
+- Framework: React 18+ with TypeScript
+- Routing: React Router v6
+- State Management: Redux Toolkit + RTK Query
+- UI Framework: Tailwind CSS + Material-UI (MUI) / Ant Design
+- Form Management: React Hook Form + Zod validation
+- Date Handling: date-fns / Day.js
+- HTTP Client: Axios with interceptors
+- i18n: react-i18next
+- Charts: Recharts / Chart.js
+- Rich Text Editor: TinyMCE / Slate
+- File Upload: React Dropzone
+- Notifications: React Toastify
+- Animations: Framer Motion
+- Testing: Jest + React Testing Library + Cypress
+- Code Quality: ESLint + Prettier + Husky
+- Build Tool: Vite
+- Package Manager: npm / pnpm
+
+Backend:
+- Framework: .NET 8 Web API
+- Architecture: Clean Architecture + CQRS pattern
+- ORM: Dapper (micro-ORM) + Entity Framework Core (for migrations)
+- Database: PostgreSQL (multi-tenant with schema-per-tenant or database-per-tenant)
+- Caching: Redis
+- Message Queue: RabbitMQ / Azure Service Bus
+- Authentication: JWT with refresh tokens
+- API Documentation: Swagger/OpenAPI
+- Logging: Serilog
+- Monitoring: Application Insights / Prometheus
+- Testing: xUnit + Moq + FluentAssertions
+- Validation: FluentValidation
+- Mapping: AutoMapper
+- Background Jobs: Hangfire / Quartz.NET
+
+Infrastructure:
+- Containerization: Docker
+- Orchestration: Kubernetes
+- Cloud Provider: AWS / Azure / Google Cloud
+- CDN: Cloudflare / AWS CloudFront
+- Object Storage: AWS S3 / Azure Blob Storage
+- Load Balancer: Nginx / AWS ALB
+- Database: PostgreSQL (RDS / Azure Database)
+- Cache: Redis (ElastiCache / Azure Redis)
+- Message Queue: RabbitMQ / Azure Service Bus / AWS SQS
+- Email Service: SendGrid / AWS SES
+- SMS Service: Twilio / SNS
+- Payment Gateway: Stripe / Razorpay / PayPal
+- CI/CD: GitHub Actions / Jenkins / GitLab CI
+- Monitoring: Grafana + Prometheus / Datadog / New Relic
+- Error Tracking: Sentry
+- APM: Application Insights / Datadog APM
+
+Development Tools:
+- Version Control: Git + GitHub/GitLab
+- IDE: Visual Studio Code / Visual Studio
+- API Testing: Postman / Insomnia
+- Design: Figma / Adobe XD
+- Project Management: Jira / Linear / Notion
+- Documentation: Confluence / Notion
+- Communication: Slack / Microsoft Teams
+
+🎯 Login Flow
+Tenant-based authentication via subdomain:
+1. User visits tenant subdomain (e.g., dreamtravel.travelsphere.com)
+2. Frontend detects tenant from subdomain
+3. Login page loads with tenant branding
+4. User enters credentials
+5. API validates credentials against tenant database
+6. JWT token issued with tenant context
+7. All subsequent API calls include tenant identifier
+8. Role-based redirection (SuperAdmin → admin.travelsphere.com, TenantAdmin → dashboard, User → browse)
+
+🎯 Multi-Tenant Strategy
+- Subdomain-based tenant detection (e.g., tenant1.platform.com)
+- Database per tenant OR schema per tenant approach
+- Tenant context propagated via JWT claims
+- Tenant-specific configuration and branding
+- Data isolation at database level
+- Tenant-aware caching with Redis
+- Horizontal scaling per tenant (large tenants get dedicated resources)
+
+🎯 Goal
+Build a fully dynamic, scalable, and customizable multi-tenant travel platform with:
+- Complete tenant isolation (data, branding, configuration)
+- Subdomain-based authentication and routing
+- Role-based access control (SuperAdmin, TenantAdmin, User)
+- Comprehensive booking management (hotels, flights, packages)
+- Integrated payment processing with multiple gateways
+- Advanced analytics and reporting
+- Marketing and promotional tools
+- Customer engagement features (chatbot, notifications, loyalty programs)
+- Enterprise-grade security and compliance (GDPR, PCI DSS)
+- High performance and scalability (10,000+ concurrent users)
+- Modern UX with responsive design and PWA support
+- Extensible architecture for future enhancements
+- Production-ready with CI/CD, monitoring, and DevOps best practices
