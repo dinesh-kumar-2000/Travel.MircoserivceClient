@@ -1,174 +1,73 @@
-import { AxiosResponse } from 'axios';
-import { BaseService } from './baseService';
+import { apiClient } from './apiClient';
 
-interface PaymentIntent {
-  id: string;
-  clientSecret: string;
+export interface CreatePaymentRequest {
+  bookingId: string;
   amount: number;
   currency: string;
+  paymentMethod: string;
+  provider: 'stripe' | 'razorpay';
+  customerEmail: string;
+  returnUrl?: string;
+}
+
+export interface CreatePaymentResponse {
+  paymentId: string;
+  clientSecret?: string;
+  checkoutUrl?: string;
   status: string;
+  message: string;
 }
 
-interface PaymentMethod {
+export interface PaymentDto {
   id: string;
-  type: 'card' | 'upi' | 'wallet' | 'netbanking';
-  last4?: string;
-  brand?: string;
-  isDefault: boolean;
-}
-
-interface Transaction {
-  id: string;
+  tenantId: string;
+  bookingId: string;
   amount: number;
   currency: string;
-  status: 'pending' | 'completed' | 'failed' | 'refunded';
-  type: 'payment' | 'refund' | 'wallet_credit';
+  paymentMethod: string;
+  status: string;
+  provider?: string;
+  transactionId?: string;
+  providerReference?: string;
+  customerId: string;
+  customerEmail?: string;
+  completedAt?: string;
   createdAt: string;
-  description: string;
 }
 
-class PaymentService extends BaseService {
-  constructor() {
-    super('/api/v1/payments');
-  }
-
-  /**
-   * Create payment intent
-   */
-  async createPaymentIntent(data: {
-    amount: number;
-    currency: string;
-    bookingId: string;
-    paymentMethod?: string;
-  }): Promise<AxiosResponse<PaymentIntent>> {
-    return this.post<PaymentIntent>('/intent', data);
-  }
-
-  /**
-   * Confirm payment
-   */
-  async confirmPayment(
-    paymentIntentId: string,
-    data?: any
-  ): Promise<AxiosResponse<any>> {
-    return this.post(`/confirm/${paymentIntentId}`, data);
-  }
-
-  /**
-   * Get payment by ID
-   */
-  async getPaymentById(paymentId: string): Promise<AxiosResponse<any>> {
-    return this.get(`/${paymentId}`);
-  }
-
-  /**
-   * Get saved payment methods
-   */
-  async getPaymentMethods(): Promise<AxiosResponse<PaymentMethod[]>> {
-    return this.get<PaymentMethod[]>('/methods');
-  }
-
-  /**
-   * Add payment method
-   */
-  async addPaymentMethod(data: any): Promise<AxiosResponse<PaymentMethod>> {
-    return this.post<PaymentMethod>('/methods', data);
-  }
-
-  /**
-   * Remove payment method
-   */
-  async removePaymentMethod(methodId: string): Promise<AxiosResponse<void>> {
-    return this.delete<void>(`/methods/${methodId}`);
-  }
-
-  /**
-   * Set default payment method
-   */
-  async setDefaultPaymentMethod(
-    methodId: string
-  ): Promise<AxiosResponse<void>> {
-    return this.post<void>(`/methods/${methodId}/set-default`);
-  }
-
-  /**
-   * Request refund
-   */
-  async requestRefund(data: {
-    bookingId: string;
-    amount?: number;
-    reason: string;
-  }): Promise<AxiosResponse<any>> {
-    return this.post('/refund', data);
-  }
-
-  /**
-   * Get refund status
-   */
-  async getRefundStatus(refundId: string): Promise<AxiosResponse<any>> {
-    return this.get(`/refund/${refundId}`);
-  }
-
-  /**
-   * Get transaction history
-   */
-  async getTransactions(params?: {
-    page?: number;
-    limit?: number;
-    startDate?: string;
-    endDate?: string;
-    status?: string;
-  }): Promise<
-    AxiosResponse<{
-      transactions: Transaction[];
-      total: number;
-      page: number;
-    }>
-  > {
-    return this.get<any>('/transactions', { params });
-  }
-
-  /**
-   * Get invoice
-   */
-  async getInvoice(bookingId: string): Promise<AxiosResponse<Blob>> {
-    return this.get(`/invoice/${bookingId}`, {
-      responseType: 'blob',
-    });
-  }
-
-  /**
-   * Download receipt
-   */
-  async downloadReceipt(transactionId: string): Promise<AxiosResponse<Blob>> {
-    return this.get(`/receipt/${transactionId}`, {
-      responseType: 'blob',
-    });
-  }
-
-  /**
-   * Verify payment (for webhook/callback)
-   */
-  async verifyPayment(data: {
-    paymentId: string;
-    signature?: string;
-    orderId?: string;
-  }): Promise<AxiosResponse<{ verified: boolean }>> {
-    return this.post<{ verified: boolean }>('/verify', data);
-  }
-
-  /**
-   * Get payment gateway configuration
-   */
-  async getPaymentConfig(): Promise<
-    AxiosResponse<{
-      stripe: { publicKey: string; enabled: boolean };
-      razorpay: { keyId: string; enabled: boolean };
-      supportedCurrencies: string[];
-    }>
-  > {
-    return this.get('/config');
-  }
+export interface ConfirmPaymentRequest {
+  paymentIntentId?: string;
+  providerReference?: string;
 }
 
-export const paymentService = new PaymentService();
+export interface RefundPaymentRequest {
+  amount?: number;
+  reason: string;
+}
+
+export const paymentService = {
+  create: async (payment: CreatePaymentRequest) => {
+    return apiClient.post<CreatePaymentResponse>(
+      '/payment/v1/Payments',
+      payment
+    );
+  },
+
+  getById: async (id: string) => {
+    return apiClient.get<PaymentDto>(`/payment/v1/Payments/${id}`);
+  },
+
+  getByBooking: async (bookingId: string) => {
+    return apiClient.get<PaymentDto[]>(
+      `/payment/v1/Payments/booking/${bookingId}`
+    );
+  },
+
+  confirm: async (id: string, request: ConfirmPaymentRequest) => {
+    return apiClient.post(`/payment/v1/Payments/${id}/confirm`, request);
+  },
+
+  refund: async (id: string, request: RefundPaymentRequest) => {
+    return apiClient.post(`/payment/v1/Payments/${id}/refund`, request);
+  },
+};
