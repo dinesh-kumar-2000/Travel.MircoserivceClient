@@ -72,20 +72,29 @@ export const AppRouter: React.FC = () => {
       }
     >
       <Routes>
-        {/* Public routes */}
+        {/* Auth routes */}
         <Route
-          path="/login"
+          path="/auth/login"
           element={
             isAuthenticated ? <Navigate to="/" replace /> : <LoginPage />
           }
         />
+        <Route path="/login" element={<Navigate to="/auth/login" replace />} />
         <Route
-          path="/register"
+          path="/auth/register"
           element={
             isAuthenticated ? <Navigate to="/" replace /> : <RegisterPage />
           }
         />
-        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+        <Route
+          path="/register"
+          element={<Navigate to="/auth/register" replace />}
+        />
+        <Route path="/auth/forgot-password" element={<ForgotPasswordPage />} />
+        <Route
+          path="/forgot-password"
+          element={<Navigate to="/auth/forgot-password" replace />}
+        />
 
         {/* SuperAdmin routes */}
         <Route
@@ -193,7 +202,7 @@ export const AppRouter: React.FC = () => {
                 <Navigate to="/" replace />
               )
             ) : (
-              <Navigate to="/login" replace />
+              <Navigate to="/auth/login" replace />
             )
           }
         />

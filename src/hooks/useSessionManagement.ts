@@ -50,7 +50,7 @@ export const useSessionManagement = (config: Partial<SessionConfig> = {}) => {
     // dispatch(logout());
 
     // Navigate to login
-    navigate('/login?reason=session-expired');
+    navigate('/auth/login?reason=session-expired');
   }, [navigate, dispatch]);
 
   // Check session status

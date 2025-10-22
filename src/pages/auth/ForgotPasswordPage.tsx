@@ -33,7 +33,7 @@ const ForgotPasswordPage: React.FC = () => {
             <p className="mb-6 text-gray-600 dark:text-gray-400">
               We've sent password reset instructions to {email}
             </p>
-            <Link to="/login">
+            <Link to="/auth/login">
               <Button fullWidth>Back to Sign In</Button>
             </Link>
           </div>
@@ -70,7 +70,7 @@ const ForgotPasswordPage: React.FC = () => {
 
           <p className="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
             <Link
-              to="/login"
+              to="/auth/login"
               className="font-medium text-primary-600 hover:text-primary-700"
             >
               Back to Sign In
@@ -83,4 +83,3 @@ const ForgotPasswordPage: React.FC = () => {
 };
 
 export default ForgotPasswordPage;
-

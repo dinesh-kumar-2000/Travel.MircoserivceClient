@@ -1,19 +1,17 @@
 import React, { useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { TwoFactorVerify } from '../../components/auth/TwoFactorVerify';
-import { useAuth } from '../../hooks/useAuth';
 
 export const TwoFactorPage: React.FC = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const { user } = useAuth();
 
   const userId = searchParams.get('userId') || '';
   const tempToken = searchParams.get('token') || '';
 
   useEffect(() => {
     if (!userId || !tempToken) {
-      navigate('/login');
+      navigate('/auth/login');
     }
   }, [userId, tempToken, navigate]);
 

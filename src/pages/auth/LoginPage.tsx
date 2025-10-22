@@ -74,7 +74,7 @@ const LoginPage: React.FC = () => {
             </label>
 
             <Link
-              to="/forgot-password"
+              to="/auth/forgot-password"
               className="text-sm text-primary-600 hover:text-primary-700"
             >
               Forgot password?
@@ -89,7 +89,7 @@ const LoginPage: React.FC = () => {
         <p className="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
           Don't have an account?{' '}
           <Link
-            to="/register"
+            to="/auth/register"
             className="font-medium text-primary-600 hover:text-primary-700"
           >
             Sign up

@@ -141,7 +141,7 @@ const UnauthorizedPage: React.FC = () => {
           </Button>
 
           <Button
-            onClick={() => navigate('/login')}
+            onClick={() => navigate('/auth/login')}
             variant="secondary"
             size="lg"
             className="w-full sm:w-auto"
